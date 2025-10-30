@@ -1,0 +1,5 @@
+{
+  "name": "BookIt: Experiences & Slots",
+  "description": "An end-to-end web application where users can explore travel experiences, select available slots, and complete bookings. This app showcases a complete booking flow from browsing to confirmation.",
+  "requestFramePermissions": []
+}
