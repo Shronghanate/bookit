@@ -1,8 +1,13 @@
 import axios from "axios";
 import { Experience, ExperienceDetails, Booking, BookingResult } from "../types";
 
-// ✅ Backend base URL
-const API_BASE_URL = "http://localhost:5000/api";
+/** 
+ * ✅ Backend Base URL
+ * Uses environment variable on Vercel for production,
+ * and falls back to localhost when running locally.
+ */
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 export const api = {
   /** 🔹 Fetch list of experiences (Home Page) */
@@ -12,7 +17,9 @@ export const api = {
   },
 
   /** 🔹 Fetch detailed experience data (Details Page) */
-  fetchExperienceDetails: async (id: string): Promise<ExperienceDetails | null> => {
+  fetchExperienceDetails: async (
+    id: string
+  ): Promise<ExperienceDetails | null> => {
     const res = await axios.get(`${API_BASE_URL}/experiences/${id}`);
     const exp = res.data;
 
