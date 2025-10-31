@@ -53,6 +53,7 @@ To develop a **complete booking platform** where users can:
 
 # Clone the repository
 git clone https://github.com/<your-username>/bookit.git
+
 cd bookit
 
 # Install frontend dependencies
@@ -60,6 +61,7 @@ npm install
 
 # Setup backend
 cd backend
+
 npm install
 
 # Create a .env file in the backend folder with your MongoDB connection string and port
