@@ -7,30 +7,37 @@ const experienceRoutes = require("./routes/experienceRoutes");
 dotenv.config();
 const app = express();
 
-// Middleware
+// ✅ Middleware
 app.use(express.json());
+
+// ✅ Corrected CORS configuration (works for both local + Vercel)
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000", // local testing
+      "https://bookit-65a9nml03-shronghanates-projects.vercel.app", // Vercel frontend
+    ],
     methods: ["GET", "POST"],
+    credentials: true,
   })
 );
 
-// MongoDB connection
+// ✅ MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Routes
+// ✅ Routes
 app.use("/api/experiences", experienceRoutes);
 app.use("/api/taxes", require("./routes/taxRoutes"));
-app.use("/api/bookings", require("./routes/bookings")); // ADDED this line
+app.use("/api/bookings", require("./routes/bookings"));
 
-// Default route
+// ✅ Default route
 app.get("/", (req, res) => {
-  res.send("Backend is running");
+  res.send("Backend is running successfully 🚀");
 });
 
-const PORT = process.env.PORT || 5000;
+// ✅ Server
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
