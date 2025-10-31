@@ -64,6 +64,7 @@ npm install
 
 # Create a .env file in the backend folder with your MongoDB connection string and port
 PORT=5000
+
 MONGO_URI=mongodb+srv://bookit_user:Bookit123!@cluster0.unp2meq.mongodb.net/bookitDB?retryWrites=true&w=majority
 
 # Start backend server
