@@ -10,13 +10,26 @@ const app = express();
 // ✅ Middleware
 app.use(express.json());
 
-// ✅ Corrected CORS configuration (works for both local + Vercel)
+// ✅ Improved CORS configuration (works for localhost + all Vercel subdomains)
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000", // local testing
-      "https://bookit-65a9nml03-shronghanates-projects.vercel.app", // Vercel frontend
-    ],
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        "http://localhost:3000", // local testing
+        "https://bookit-65a9nml03-shronghanates-projects.vercel.app", // main deployed frontend
+      ];
+
+      // ✅ Allow requests with no origin (e.g., Postman, curl)
+      if (!origin) return callback(null, true);
+
+      // ✅ Allow all Vercel preview domains dynamically
+      if (allowedOrigins.includes(origin) || /\.vercel\.app$/.test(origin)) {
+        return callback(null, true);
+      }
+
+      // ❌ Block anything else
+      return callback(new Error("Not allowed by CORS"));
+    },
     methods: ["GET", "POST"],
     credentials: true,
   })
