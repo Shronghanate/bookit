@@ -8,6 +8,9 @@ This project was built as part of the **Fullstack Intern Assignment**, focusing 
 
 ## 🚀 Live Links
 
+*IMPORTANT NOTE*
+(The cards are sometimes not visible in the vercel link.Please clone the project and run this project in your localhost for proper viewing.)
+
 - **Frontend (Vercel):** [https://bookit-65a9nml03-shronghanates-projects.vercel.app](https://bookit-65a9nml03-shronghanates-projects.vercel.app)
 - **Backend (Railway):** [https://talented-reverence-production.up.railway.app](https://talented-reverence-production.up.railway.app)
 - **Figma Design:** [HD-Booking (Figma)](https://www.figma.com/design/8X6E1Ev8YdtZ3erV0Iifvb/HD-booking?node-id=0-1&p=f&t=K4scwnxfIHmfbb2a-0)
